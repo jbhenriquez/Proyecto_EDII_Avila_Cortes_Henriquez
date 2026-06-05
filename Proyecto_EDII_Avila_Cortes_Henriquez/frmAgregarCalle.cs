@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,29 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         public frmAgregarCalle()
         {
             InitializeComponent();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string origen = txtOrigen.Text;
+                string destino = txtDestino.Text;
+                int tiempo = int.Parse(txttiempo.Text);
+                Grafo grafo = new Grafo();
+                grafo.AgregarCalle(origen, destino, tiempo);
+                MessageBox.Show("Calle agregada exitosamente.");
+
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Por favor, ingrese un número válido para el tiempo.");
+            }
         }
     }
 }

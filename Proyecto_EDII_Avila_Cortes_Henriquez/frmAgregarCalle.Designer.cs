@@ -30,13 +30,13 @@
         {
             lblTitulo = new Label();
             groupBox1 = new GroupBox();
-            lblOrigen = new Label();
-            lblDestino = new Label();
-            lblTiempo = new Label();
-            txtOrigen = new TextBox();
-            txtDestino = new TextBox();
-            txttiempo = new TextBox();
             lblMinutos = new Label();
+            txttiempo = new TextBox();
+            txtDestino = new TextBox();
+            txtOrigen = new TextBox();
+            lblTiempo = new Label();
+            lblDestino = new Label();
+            lblOrigen = new Label();
             btnGuardar = new Button();
             btnLimpiar = new Button();
             btnSalir = new Button();
@@ -68,25 +68,39 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 
-            // lblOrigen
+            // lblMinutos
             // 
-            lblOrigen.AutoSize = true;
-            lblOrigen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblOrigen.Location = new Point(89, 39);
-            lblOrigen.Name = "lblOrigen";
-            lblOrigen.Size = new Size(61, 21);
-            lblOrigen.TabIndex = 0;
-            lblOrigen.Text = "Origen:";
+            lblMinutos.AutoSize = true;
+            lblMinutos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMinutos.Location = new Point(230, 141);
+            lblMinutos.Name = "lblMinutos";
+            lblMinutos.Size = new Size(67, 21);
+            lblMinutos.TabIndex = 6;
+            lblMinutos.Text = "Minutos";
             // 
-            // lblDestino
+            // txttiempo
             // 
-            lblDestino.AutoSize = true;
-            lblDestino.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDestino.Location = new Point(84, 91);
-            lblDestino.Name = "lblDestino";
-            lblDestino.Size = new Size(66, 21);
-            lblDestino.TabIndex = 1;
-            lblDestino.Text = "Destino:";
+            txttiempo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txttiempo.Location = new Point(153, 138);
+            txttiempo.Name = "txttiempo";
+            txttiempo.Size = new Size(71, 29);
+            txttiempo.TabIndex = 5;
+            // 
+            // txtDestino
+            // 
+            txtDestino.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtDestino.Location = new Point(153, 89);
+            txtDestino.Name = "txtDestino";
+            txtDestino.Size = new Size(165, 29);
+            txtDestino.TabIndex = 4;
+            // 
+            // txtOrigen
+            // 
+            txtOrigen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtOrigen.Location = new Point(153, 37);
+            txtOrigen.Name = "txtOrigen";
+            txtOrigen.Size = new Size(165, 29);
+            txtOrigen.TabIndex = 3;
             // 
             // lblTiempo
             // 
@@ -98,56 +112,43 @@
             lblTiempo.TabIndex = 2;
             lblTiempo.Text = "Tiempo de tráfico:";
             // 
-            // txtOrigen
+            // lblDestino
             // 
-            txtOrigen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtOrigen.Location = new Point(153, 37);
-            txtOrigen.Name = "txtOrigen";
-            txtOrigen.Size = new Size(165, 29);
-            txtOrigen.TabIndex = 3;
+            lblDestino.AutoSize = true;
+            lblDestino.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDestino.Location = new Point(84, 91);
+            lblDestino.Name = "lblDestino";
+            lblDestino.Size = new Size(66, 21);
+            lblDestino.TabIndex = 1;
+            lblDestino.Text = "Destino:";
             // 
-            // txtDestino
+            // lblOrigen
             // 
-            txtDestino.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDestino.Location = new Point(153, 89);
-            txtDestino.Name = "txtDestino";
-            txtDestino.Size = new Size(165, 29);
-            txtDestino.TabIndex = 4;
-            // 
-            // txttiempo
-            // 
-            txttiempo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txttiempo.Location = new Point(153, 138);
-            txttiempo.Name = "txttiempo";
-            txttiempo.Size = new Size(71, 29);
-            txttiempo.TabIndex = 5;
-            // 
-            // lblMinutos
-            // 
-            lblMinutos.AutoSize = true;
-            lblMinutos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMinutos.Location = new Point(230, 141);
-            lblMinutos.Name = "lblMinutos";
-            lblMinutos.Size = new Size(67, 21);
-            lblMinutos.TabIndex = 6;
-            lblMinutos.Text = "Minutos";
+            lblOrigen.AutoSize = true;
+            lblOrigen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblOrigen.Location = new Point(89, 39);
+            lblOrigen.Name = "lblOrigen";
+            lblOrigen.Size = new Size(61, 21);
+            lblOrigen.TabIndex = 0;
+            lblOrigen.Text = "Origen:";
             // 
             // btnGuardar
             // 
             btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.Location = new Point(51, 229);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(98, 41);
+            btnGuardar.Size = new Size(100, 40);
             btnGuardar.TabIndex = 2;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnLimpiar
             // 
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLimpiar.Location = new Point(175, 229);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(98, 41);
+            btnLimpiar.Size = new Size(100, 40);
             btnLimpiar.TabIndex = 3;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
@@ -157,10 +158,11 @@
             btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(302, 229);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(98, 41);
+            btnSalir.Size = new Size(100, 40);
             btnSalir.TabIndex = 4;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // frmAgregarCalle
             // 

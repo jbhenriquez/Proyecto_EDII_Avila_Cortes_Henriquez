@@ -71,6 +71,7 @@
             btnMostrarMapa.TabIndex = 2;
             btnMostrarMapa.Text = "Mostrar Mapa";
             btnMostrarMapa.UseVisualStyleBackColor = true;
+            btnMostrarMapa.Click += btnMostrarMapa_Click;
             // 
             // btnRutaRapida
             // 
@@ -81,6 +82,7 @@
             btnRutaRapida.TabIndex = 3;
             btnRutaRapida.Text = "Ruta Más Rápida";
             btnRutaRapida.UseVisualStyleBackColor = true;
+            btnRutaRapida.Click += btnRutaRapida_Click;
             // 
             // btnActualizarTrafico
             // 
@@ -91,6 +93,7 @@
             btnActualizarTrafico.TabIndex = 4;
             btnActualizarTrafico.Text = "Actualizar Tráfico";
             btnActualizarTrafico.UseVisualStyleBackColor = true;
+            btnActualizarTrafico.Click += btnActualizarTrafico_Click;
             // 
             // btnTraficoMax
             // 
@@ -101,7 +104,7 @@
             btnTraficoMax.TabIndex = 5;
             btnTraficoMax.Text = "Consultar Tráfico Máximo";
             btnTraficoMax.UseVisualStyleBackColor = true;
-            btnTraficoMax.Click += button1_Click;
+            btnTraficoMax.Click += btnTraficoMax_Click;
             // 
             // btnRegistrarIncidente
             // 
@@ -112,6 +115,7 @@
             btnRegistrarIncidente.TabIndex = 6;
             btnRegistrarIncidente.Text = "Registrar Incidente";
             btnRegistrarIncidente.UseVisualStyleBackColor = true;
+            btnRegistrarIncidente.Click += btnRegistrarIncidente_Click;
             // 
             // btnAtenderIncidente
             // 
@@ -122,16 +126,18 @@
             btnAtenderIncidente.TabIndex = 7;
             btnAtenderIncidente.Text = "Atender Incidente Prioritario";
             btnAtenderIncidente.UseVisualStyleBackColor = true;
+            btnAtenderIncidente.Click += btnAtenderIncidente_Click;
             // 
             // btnSalir
             // 
             btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(364, 380);
+            btnSalir.Location = new Point(364, 392);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(183, 58);
             btnSalir.TabIndex = 8;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // gbxOpciones
             // 
@@ -153,7 +159,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(655, 450);
+            ClientSize = new Size(655, 475);
             Controls.Add(gbxOpciones);
             Controls.Add(btnSalir);
             Controls.Add(label1);
