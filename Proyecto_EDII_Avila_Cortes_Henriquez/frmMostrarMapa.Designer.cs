@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblMapa = new Label();
             dgvMapa = new DataGridView();
+            btnCerrar = new Button();
             Origen = new DataGridViewTextBoxColumn();
             Destino = new DataGridViewTextBoxColumn();
             Tiempo = new DataGridViewTextBoxColumn();
-            btnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMapa).BeginInit();
             SuspendLayout();
             // 
@@ -49,44 +50,56 @@
             // 
             // dgvMapa
             // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvMapa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvMapa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMapa.Columns.AddRange(new DataGridViewColumn[] { Origen, Destino, Tiempo });
-            dgvMapa.Location = new Point(60, 70);
+            dgvMapa.Location = new Point(51, 70);
             dgvMapa.Name = "dgvMapa";
-            dgvMapa.Size = new Size(680, 299);
+            dgvMapa.Size = new Size(693, 299);
             dgvMapa.TabIndex = 1;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCerrar.Location = new Point(355, 389);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(100, 48);
+            btnCerrar.TabIndex = 2;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // Origen
             // 
             Origen.HeaderText = "Origen";
             Origen.Name = "Origen";
+            Origen.Width = 250;
             // 
             // Destino
             // 
             Destino.HeaderText = "Destino";
             Destino.Name = "Destino";
+            Destino.Width = 250;
             // 
             // Tiempo
             // 
             Tiempo.HeaderText = "Tiempo Tráfico (min)";
             Tiempo.Name = "Tiempo";
-            // 
-            // btnSalir
-            // 
-            btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(355, 389);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(100, 48);
-            btnSalir.TabIndex = 2;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            Tiempo.Width = 150;
             // 
             // frmMostrarMapa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 449);
-            Controls.Add(btnSalir);
+            Controls.Add(btnCerrar);
             Controls.Add(dgvMapa);
             Controls.Add(lblMapa);
             Name = "frmMostrarMapa";
@@ -100,9 +113,9 @@
 
         private Label lblMapa;
         private DataGridView dgvMapa;
+        private Button btnCerrar;
         private DataGridViewTextBoxColumn Origen;
         private DataGridViewTextBoxColumn Destino;
         private DataGridViewTextBoxColumn Tiempo;
-        private Button btnSalir;
     }
 }

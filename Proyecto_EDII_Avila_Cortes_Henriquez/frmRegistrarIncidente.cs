@@ -14,5 +14,23 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         {
             InitializeComponent();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        public void LimpiarCampos()
+        {
+            tbxDescripcion.Clear();
+            rbtBajo.Checked = false;
+            rbtMedio.Checked = false;
+            rbtAlto.Checked = false;
+        }
     }
 }

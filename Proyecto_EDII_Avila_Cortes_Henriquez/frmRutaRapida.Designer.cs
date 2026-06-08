@@ -36,12 +36,12 @@
             gbxRuta = new GroupBox();
             btnConsultar = new Button();
             lblRecorridos = new Label();
-            listBox1 = new ListBox();
+            lbxRuta = new ListBox();
             lblTiempoEst = new Label();
             gbxResultado = new GroupBox();
-            lblMinutos = new Label();
             lblComplMinutos = new Label();
-            btnSalir = new Button();
+            lblMinutos = new Label();
+            btnCerrar = new Button();
             btnLimpiar = new Button();
             gbxRuta.SuspendLayout();
             gbxResultado.SuspendLayout();
@@ -126,13 +126,13 @@
             lblRecorridos.TabIndex = 7;
             lblRecorridos.Text = "Recorrido de la ruta";
             // 
-            // listBox1
+            // lbxRuta
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(310, 47);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(351, 94);
-            listBox1.TabIndex = 8;
+            lbxRuta.FormattingEnabled = true;
+            lbxRuta.Location = new Point(310, 47);
+            lbxRuta.Name = "lbxRuta";
+            lbxRuta.Size = new Size(351, 94);
+            lbxRuta.TabIndex = 8;
             // 
             // lblTiempoEst
             // 
@@ -149,23 +149,13 @@
             gbxResultado.Controls.Add(lblComplMinutos);
             gbxResultado.Controls.Add(lblMinutos);
             gbxResultado.Controls.Add(lblTiempoEst);
-            gbxResultado.Controls.Add(listBox1);
+            gbxResultado.Controls.Add(lbxRuta);
             gbxResultado.Controls.Add(lblRecorridos);
             gbxResultado.Location = new Point(64, 250);
             gbxResultado.Name = "gbxResultado";
             gbxResultado.Size = new Size(681, 158);
             gbxResultado.TabIndex = 10;
             gbxResultado.TabStop = false;
-            // 
-            // lblMinutos
-            // 
-            lblMinutos.AutoSize = true;
-            lblMinutos.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMinutos.Location = new Point(36, 67);
-            lblMinutos.Name = "lblMinutos";
-            lblMinutos.Size = new Size(39, 25);
-            lblMinutos.TabIndex = 10;
-            lblMinutos.Text = "***";
             // 
             // lblComplMinutos
             // 
@@ -177,15 +167,26 @@
             lblComplMinutos.TabIndex = 11;
             lblComplMinutos.Text = "Minutos ";
             // 
-            // btnSalir
+            // lblMinutos
             // 
-            btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(610, 421);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(100, 40);
-            btnSalir.TabIndex = 5;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            lblMinutos.AutoSize = true;
+            lblMinutos.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMinutos.Location = new Point(36, 67);
+            lblMinutos.Name = "lblMinutos";
+            lblMinutos.Size = new Size(39, 25);
+            lblMinutos.TabIndex = 10;
+            lblMinutos.Text = "***";
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCerrar.Location = new Point(610, 421);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(100, 40);
+            btnCerrar.TabIndex = 5;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // btnLimpiar
             // 
@@ -196,6 +197,7 @@
             btnLimpiar.TabIndex = 11;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // frmRutaRapida
             // 
@@ -203,7 +205,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 473);
             Controls.Add(btnLimpiar);
-            Controls.Add(btnSalir);
+            Controls.Add(btnCerrar);
             Controls.Add(gbxResultado);
             Controls.Add(gbxRuta);
             Controls.Add(lblTitulo);
@@ -227,12 +229,12 @@
         private GroupBox gbxRuta;
         private Button btnConsultar;
         private Label lblRecorridos;
-        private ListBox listBox1;
+        private ListBox lbxRuta;
         private Label lblTiempoEst;
         private GroupBox gbxResultado;
         private Label lblComplMinutos;
         private Label lblMinutos;
-        private Button btnSalir;
+        private Button btnCerrar;
         private Button btnLimpiar;
     }
 }

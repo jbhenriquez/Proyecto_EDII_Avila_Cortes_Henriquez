@@ -14,5 +14,10 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         {
             InitializeComponent();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

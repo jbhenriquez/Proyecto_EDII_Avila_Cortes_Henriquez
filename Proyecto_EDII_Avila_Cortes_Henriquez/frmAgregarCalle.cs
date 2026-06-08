@@ -25,9 +25,9 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         {
             try
             {
-                string origen = txtOrigen.Text;
-                string destino = txtDestino.Text;
-                int tiempo = int.Parse(txttiempo.Text);
+                string origen = tbxOrigen.Text;
+                string destino = tbxDestino.Text;
+                int tiempo = int.Parse(tbxTiempo.Text);
                 Grafo grafo = new Grafo();
                 grafo.AgregarCalle(origen, destino, tiempo);
                 MessageBox.Show("Calle agregada exitosamente.");
@@ -37,6 +37,18 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             {
                 MessageBox.Show("Por favor, ingrese un número válido para el tiempo.");
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        public void LimpiarCampos()
+        {
+            tbxOrigen.Clear();
+            tbxDestino.Clear();
+            tbxTiempo.Clear();
         }
     }
 }

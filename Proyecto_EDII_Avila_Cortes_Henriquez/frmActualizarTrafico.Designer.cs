@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             gbxRuta = new GroupBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            cbxDestino = new ComboBox();
+            cbxOrigen = new ComboBox();
             lblDestino = new Label();
             lblOrigen = new Label();
             gbxActua = new GroupBox();
-            txbActual = new TextBox();
-            txbUltimo = new TextBox();
+            tbxActual = new TextBox();
+            tbxUltimo = new TextBox();
             lblActual = new Label();
             lblUltimo = new Label();
             lblTitulo = new Label();
             btnGuardar = new Button();
             btnLimpiar = new Button();
-            btnSalir = new Button();
+            btnCerrar = new Button();
             gbxRuta.SuspendLayout();
             gbxActua.SuspendLayout();
             SuspendLayout();
             // 
             // gbxRuta
             // 
-            gbxRuta.Controls.Add(comboBox2);
-            gbxRuta.Controls.Add(comboBox1);
+            gbxRuta.Controls.Add(cbxDestino);
+            gbxRuta.Controls.Add(cbxOrigen);
             gbxRuta.Controls.Add(lblDestino);
             gbxRuta.Controls.Add(lblOrigen);
             gbxRuta.Location = new Point(30, 64);
@@ -58,21 +58,21 @@
             gbxRuta.TabIndex = 0;
             gbxRuta.TabStop = false;
             // 
-            // comboBox2
+            // cbxDestino
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(322, 66);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 3;
+            cbxDestino.FormattingEnabled = true;
+            cbxDestino.Location = new Point(322, 66);
+            cbxDestino.Name = "cbxDestino";
+            cbxDestino.Size = new Size(121, 23);
+            cbxDestino.TabIndex = 3;
             // 
-            // comboBox1
+            // cbxOrigen
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(28, 68);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 2;
+            cbxOrigen.FormattingEnabled = true;
+            cbxOrigen.Location = new Point(28, 68);
+            cbxOrigen.Name = "cbxOrigen";
+            cbxOrigen.Size = new Size(121, 23);
+            cbxOrigen.TabIndex = 2;
             // 
             // lblDestino
             // 
@@ -96,8 +96,8 @@
             // 
             // gbxActua
             // 
-            gbxActua.Controls.Add(txbActual);
-            gbxActua.Controls.Add(txbUltimo);
+            gbxActua.Controls.Add(tbxActual);
+            gbxActua.Controls.Add(tbxUltimo);
             gbxActua.Controls.Add(lblActual);
             gbxActua.Controls.Add(lblUltimo);
             gbxActua.Location = new Point(30, 211);
@@ -106,20 +106,20 @@
             gbxActua.TabIndex = 1;
             gbxActua.TabStop = false;
             // 
-            // txbActual
+            // tbxActual
             // 
-            txbActual.Location = new Point(322, 61);
-            txbActual.Name = "txbActual";
-            txbActual.Size = new Size(100, 23);
-            txbActual.TabIndex = 3;
+            tbxActual.Location = new Point(322, 61);
+            tbxActual.Name = "tbxActual";
+            tbxActual.Size = new Size(100, 23);
+            tbxActual.TabIndex = 3;
             // 
-            // txbUltimo
+            // tbxUltimo
             // 
-            txbUltimo.Location = new Point(72, 61);
-            txbUltimo.Name = "txbUltimo";
-            txbUltimo.ReadOnly = true;
-            txbUltimo.Size = new Size(100, 23);
-            txbUltimo.TabIndex = 2;
+            tbxUltimo.Location = new Point(72, 61);
+            tbxUltimo.Name = "tbxUltimo";
+            tbxUltimo.ReadOnly = true;
+            tbxUltimo.Size = new Size(100, 23);
+            tbxUltimo.TabIndex = 2;
             // 
             // lblActual
             // 
@@ -170,23 +170,25 @@
             btnLimpiar.TabIndex = 4;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // btnSalir
+            // btnCerrar
             // 
-            btnSalir.Font = new Font("Segoe UI", 12F);
-            btnSalir.Location = new Point(406, 374);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(100, 40);
-            btnSalir.TabIndex = 5;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            btnCerrar.Font = new Font("Segoe UI", 12F);
+            btnCerrar.Location = new Point(406, 374);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(100, 40);
+            btnCerrar.TabIndex = 5;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // frmActualizarTrafico
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(579, 450);
-            Controls.Add(btnSalir);
+            Controls.Add(btnCerrar);
             Controls.Add(btnLimpiar);
             Controls.Add(btnGuardar);
             Controls.Add(lblTitulo);
@@ -206,17 +208,17 @@
 
         private GroupBox gbxRuta;
         private GroupBox gbxActua;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox cbxDestino;
+        private ComboBox cbxOrigen;
         private Label lblDestino;
         private Label lblOrigen;
-        private TextBox txbActual;
-        private TextBox txbUltimo;
+        private TextBox tbxActual;
+        private TextBox tbxUltimo;
         private Label lblActual;
         private Label lblUltimo;
         private Label lblTitulo;
         private Button btnGuardar;
         private Button btnLimpiar;
-        private Button btnSalir;
+        private Button btnCerrar;
     }
 }

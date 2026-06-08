@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             lblTitulo = new Label();
-            groupBox1 = new GroupBox();
+            gbxDatos = new GroupBox();
             lblMinutos = new Label();
-            txttiempo = new TextBox();
-            txtDestino = new TextBox();
-            txtOrigen = new TextBox();
+            tbxTiempo = new TextBox();
+            tbxDestino = new TextBox();
+            tbxOrigen = new TextBox();
             lblTiempo = new Label();
             lblDestino = new Label();
             lblOrigen = new Label();
             btnGuardar = new Button();
             btnLimpiar = new Button();
-            btnSalir = new Button();
-            groupBox1.SuspendLayout();
+            btnCerrar = new Button();
+            gbxDatos.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -53,20 +53,20 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Ingrese los datos necesarios";
             // 
-            // groupBox1
+            // gbxDatos
             // 
-            groupBox1.Controls.Add(lblMinutos);
-            groupBox1.Controls.Add(txttiempo);
-            groupBox1.Controls.Add(txtDestino);
-            groupBox1.Controls.Add(txtOrigen);
-            groupBox1.Controls.Add(lblTiempo);
-            groupBox1.Controls.Add(lblDestino);
-            groupBox1.Controls.Add(lblOrigen);
-            groupBox1.Location = new Point(22, 37);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(401, 186);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
+            gbxDatos.Controls.Add(lblMinutos);
+            gbxDatos.Controls.Add(tbxTiempo);
+            gbxDatos.Controls.Add(tbxDestino);
+            gbxDatos.Controls.Add(tbxOrigen);
+            gbxDatos.Controls.Add(lblTiempo);
+            gbxDatos.Controls.Add(lblDestino);
+            gbxDatos.Controls.Add(lblOrigen);
+            gbxDatos.Location = new Point(22, 37);
+            gbxDatos.Name = "gbxDatos";
+            gbxDatos.Size = new Size(401, 186);
+            gbxDatos.TabIndex = 1;
+            gbxDatos.TabStop = false;
             // 
             // lblMinutos
             // 
@@ -78,29 +78,29 @@
             lblMinutos.TabIndex = 6;
             lblMinutos.Text = "Minutos";
             // 
-            // txttiempo
+            // tbxTiempo
             // 
-            txttiempo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txttiempo.Location = new Point(153, 138);
-            txttiempo.Name = "txttiempo";
-            txttiempo.Size = new Size(71, 29);
-            txttiempo.TabIndex = 5;
+            tbxTiempo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxTiempo.Location = new Point(153, 138);
+            tbxTiempo.Name = "tbxTiempo";
+            tbxTiempo.Size = new Size(71, 29);
+            tbxTiempo.TabIndex = 5;
             // 
-            // txtDestino
+            // tbxDestino
             // 
-            txtDestino.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDestino.Location = new Point(153, 89);
-            txtDestino.Name = "txtDestino";
-            txtDestino.Size = new Size(165, 29);
-            txtDestino.TabIndex = 4;
+            tbxDestino.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxDestino.Location = new Point(153, 89);
+            tbxDestino.Name = "tbxDestino";
+            tbxDestino.Size = new Size(165, 29);
+            tbxDestino.TabIndex = 4;
             // 
-            // txtOrigen
+            // tbxOrigen
             // 
-            txtOrigen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtOrigen.Location = new Point(153, 37);
-            txtOrigen.Name = "txtOrigen";
-            txtOrigen.Size = new Size(165, 29);
-            txtOrigen.TabIndex = 3;
+            tbxOrigen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxOrigen.Location = new Point(153, 37);
+            tbxOrigen.Name = "tbxOrigen";
+            tbxOrigen.Size = new Size(165, 29);
+            tbxOrigen.TabIndex = 3;
             // 
             // lblTiempo
             // 
@@ -152,32 +152,33 @@
             btnLimpiar.TabIndex = 3;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // btnSalir
+            // btnCerrar
             // 
-            btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(302, 229);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(100, 40);
-            btnSalir.TabIndex = 4;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
-            btnSalir.Click += btnSalir_Click;
+            btnCerrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCerrar.Location = new Point(302, 229);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(100, 40);
+            btnCerrar.TabIndex = 4;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnSalir_Click;
             // 
             // frmAgregarCalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 298);
-            Controls.Add(btnSalir);
+            Controls.Add(btnCerrar);
             Controls.Add(btnLimpiar);
             Controls.Add(btnGuardar);
-            Controls.Add(groupBox1);
+            Controls.Add(gbxDatos);
             Controls.Add(lblTitulo);
             Name = "frmAgregarCalle";
             Text = "Agregar Calle";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            gbxDatos.ResumeLayout(false);
+            gbxDatos.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -185,16 +186,16 @@
         #endregion
 
         private Label lblTitulo;
-        private GroupBox groupBox1;
+        private GroupBox gbxDatos;
         private Label lblTiempo;
         private Label lblDestino;
         private Label lblOrigen;
         private Label lblMinutos;
-        private TextBox txttiempo;
-        private TextBox txtDestino;
-        private TextBox txtOrigen;
+        private TextBox tbxTiempo;
+        private TextBox tbxDestino;
+        private TextBox tbxOrigen;
         private Button btnGuardar;
         private Button btnLimpiar;
-        private Button btnSalir;
+        private Button btnCerrar;
     }
 }

@@ -28,12 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmAtenderIncidente";
+            gbxIncidente = new GroupBox();
+            tbxIncidente = new TextBox();
+            btnAtender = new Button();
+            btnCancelar = new Button();
+            gbxIncidente.SuspendLayout();
+            SuspendLayout();
+            // 
+            // gbxIncidente
+            // 
+            gbxIncidente.Controls.Add(tbxIncidente);
+            gbxIncidente.Location = new Point(47, 30);
+            gbxIncidente.Name = "gbxIncidente";
+            gbxIncidente.Size = new Size(438, 132);
+            gbxIncidente.TabIndex = 0;
+            gbxIncidente.TabStop = false;
+            gbxIncidente.Text = "Incidente";
+            // 
+            // tbxIncidente
+            // 
+            tbxIncidente.Location = new Point(39, 22);
+            tbxIncidente.Multiline = true;
+            tbxIncidente.Name = "tbxIncidente";
+            tbxIncidente.ReadOnly = true;
+            tbxIncidente.Size = new Size(357, 96);
+            tbxIncidente.TabIndex = 0;
+            // 
+            // btnAtender
+            // 
+            btnAtender.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAtender.Location = new Point(86, 181);
+            btnAtender.Name = "btnAtender";
+            btnAtender.Size = new Size(100, 40);
+            btnAtender.TabIndex = 1;
+            btnAtender.Text = "Atender";
+            btnAtender.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancelar.Location = new Point(318, 181);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(100, 40);
+            btnCancelar.TabIndex = 2;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += button1_Click;
+            // 
+            // frmAtenderIncidente
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(523, 239);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnAtender);
+            Controls.Add(gbxIncidente);
+            Name = "frmAtenderIncidente";
+            Text = "Atender Incidente Prioritario";
+            gbxIncidente.ResumeLayout(false);
+            gbxIncidente.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private GroupBox gbxIncidente;
+        private TextBox tbxIncidente;
+        private Button btnAtender;
+        private Button btnCancelar;
     }
 }
