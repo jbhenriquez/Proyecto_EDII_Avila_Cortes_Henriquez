@@ -19,5 +19,22 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         {
             this.Close();
         }
+        private void frmMostrarMapa_Load(object sender, EventArgs e)
+        {
+            dgvMapa.Rows.Clear();
+
+            foreach (var origen in Global.Ciudad.ObtenerGrafo())
+            {
+                foreach (var arista in origen.Value)
+                {
+                    dgvMapa.Rows.Add(
+                        origen.Key,
+                        arista.Destino,
+                        arista.Peso
+                    );
+                }
+            }
+        }
     }
+
 }

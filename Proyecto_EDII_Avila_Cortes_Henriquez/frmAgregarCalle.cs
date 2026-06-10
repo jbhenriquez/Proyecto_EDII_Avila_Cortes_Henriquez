@@ -28,8 +28,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
                 string origen = tbxOrigen.Text;
                 string destino = tbxDestino.Text;
                 int tiempo = int.Parse(tbxTiempo.Text);
-                Grafo grafo = new Grafo();
-                grafo.AgregarCalle(origen, destino, tiempo);
+                Global.Ciudad.AgregarCalle(origen, destino, tiempo);
                 MessageBox.Show("Calle agregada exitosamente.");
 
             }

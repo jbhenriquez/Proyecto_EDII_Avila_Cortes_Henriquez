@@ -19,5 +19,10 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         {
             this.Close();
         }
+
+        private void tbxIncidente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

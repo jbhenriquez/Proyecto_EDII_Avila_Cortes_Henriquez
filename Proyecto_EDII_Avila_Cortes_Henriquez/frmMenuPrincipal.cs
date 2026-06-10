@@ -5,6 +5,16 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         public frmMenuPrincipal()
         {
             InitializeComponent();
+            if (!Global.GrafoCargado)
+            {
+                Global.Ciudad.AgregarCalle("Centro", "Soyapango", 15);
+                Global.Ciudad.AgregarCalle("Centro", "SantaTecla", 12);
+                Global.Ciudad.AgregarCalle("Soyapango", "Ilopango", 10);
+                Global.Ciudad.AgregarCalle("SantaTecla", "Apopa", 20);
+                Global.Ciudad.AgregarCalle("Apopa", "Ilopango", 8);
+
+                Global.GrafoCargado = true;
+            }
         }
 
         private void btnAgregarCalle_Click(object sender, EventArgs e)

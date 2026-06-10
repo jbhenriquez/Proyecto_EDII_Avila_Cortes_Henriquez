@@ -15,6 +15,10 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             grafo[origen].Add(new Arista(destino, peso));
             grafo[destino].Add(new Arista(origen, peso));
         }
+        public Dictionary<string, List<Arista>> ObtenerGrafo()
+        {
+            return grafo;
+        }
 
         public void Mostrar()
         { // Hay que adecuarlo para mostrarlo en el DataGridView
@@ -29,9 +33,46 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             }
         } // fin Mostrar
 
-        public void Dijkstra(string inicio, string destino)
+        public int Dijkstra(string inicio, string destino)
         {
+            Dictionary<string, int> distancia = new Dictionary<string, int>();
+            HashSet<string> visitados = new HashSet<string>();
 
+            foreach (var nodo in grafo.Keys)
+                distancia[nodo] = int.MaxValue;
+
+            distancia[inicio] = 0;
+
+            while (visitados.Count < grafo.Count)
+            {
+                string actual = null;
+                int menor = int.MaxValue;
+
+                foreach (var nodo in distancia)
+                {
+                    if (!visitados.Contains(nodo.Key) &&
+                        nodo.Value < menor)
+                    {
+                        menor = nodo.Value;
+                        actual = nodo.Key;
+                    }
+                }
+
+                if (actual == null)
+                    break;
+
+                visitados.Add(actual);
+
+                foreach (var vecino in grafo[actual])
+                {
+                    int nueva = distancia[actual] + vecino.Peso;
+
+                    if (nueva < distancia[vecino.Destino])
+                        distancia[vecino.Destino] = nueva;
+                }
+            }
+
+            return distancia[destino];
         }
     }
 }
