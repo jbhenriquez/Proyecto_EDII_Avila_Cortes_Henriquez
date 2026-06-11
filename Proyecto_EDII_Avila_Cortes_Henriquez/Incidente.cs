@@ -9,15 +9,18 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         public string Descripcion { get; set; }
         public DateTime Fecha { get; set; }
         public string Ubicacion { get; set; }
-        public Incidente(string descripcion, DateTime fecha, string ubicacion)
+        public int Prioridad { get; set; }
+
+        public Incidente(string descripcion, DateTime fecha, string ubicacion, int prioridad)
         {
             Descripcion = descripcion;
             Fecha = fecha;
             Ubicacion = ubicacion;
+            Prioridad = prioridad;
         }
         public override string ToString()
         {
-            return $"Incidente: {Descripcion}, Fecha: {Fecha}, Ubicación: {Ubicacion}";
+            return $"[{Prioridad}] {Descripcion} - {Ubicacion}";
         }
     }
 }

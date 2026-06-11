@@ -68,6 +68,7 @@
             btnAtender.TabIndex = 1;
             btnAtender.Text = "Atender";
             btnAtender.UseVisualStyleBackColor = true;
+            btnAtender.Click += btnAtender_Click;
             // 
             // btnCancelar
             // 

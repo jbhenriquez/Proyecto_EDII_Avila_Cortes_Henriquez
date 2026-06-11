@@ -13,6 +13,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         public frmAtenderIncidente()
         {
             InitializeComponent();
+            btnAtender.Click += btnAtender_Click;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -23,6 +24,19 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         private void tbxIncidente_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAtender_Click(object sender, EventArgs e)
+        {
+            Incidente inc = Global.Incidentes.ExtraerMax();
+
+            if (inc == null)
+            {
+                MessageBox.Show("No hay incidentes pendientes");
+                return;
+            }
+
+            tbxIncidente.Text = inc.ToString();
         }
     }
 }

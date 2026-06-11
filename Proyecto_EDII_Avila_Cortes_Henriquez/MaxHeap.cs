@@ -9,6 +9,8 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         public void Insertar(Incidente incidente)
         {
             heap.Add(incidente);
+            heap.Sort((a, b) =>
+                b.Prioridad.CompareTo(a.Prioridad));
         }
 
         public Incidente ExtraerMax()
