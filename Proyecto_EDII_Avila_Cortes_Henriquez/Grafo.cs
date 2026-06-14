@@ -8,30 +8,60 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
     {
         private Dictionary<string, List<Arista>> grafo = new Dictionary<string, List<Arista>>();
 
+        // Diccionario para guardar cada nodo y su lista de nodos conectados con ciudades conectadas (adyacencias)
+        private Dictionary<string, List<string>> adyacencias = new Dictionary<string, List<string>>();
+
+        //Lista de visitados despues de ejecutar Dijkstra
+        public List<string> UltimosVisitados { get; private set; } = new List<string>();
         public void AgregarCalle(string origen, string destino, int peso)
         {
             if (!grafo.ContainsKey(origen)) grafo[origen] = new List<Arista>();
             if (!grafo.ContainsKey(destino)) grafo[destino] = new List<Arista>();
             grafo[origen].Add(new Arista(destino, peso));
             grafo[destino].Add(new Arista(origen, peso));
+            AgregarConexion(origen, destino);
+            AgregarConexion(destino, origen); // Por lo fuertemente conexo
         }
         public Dictionary<string, List<Arista>> ObtenerGrafo()
         {
             return grafo;
         }
 
-        public void Mostrar()
-        { // Hay que adecuarlo para mostrarlo en el DataGridView
-            foreach (var nodo in grafo) // Recorre cada nodo del grafo
+
+        public void EliminarCalle(string origen, string destino)
+        {
+            if (grafo.ContainsKey(origen))
+                grafo[origen].RemoveAll(a => a.Destino == destino);
+            if (grafo.ContainsKey(destino))
+                grafo[destino].RemoveAll(a => a.Destino == origen);
+        }
+
+        public int MostrarPesoCalle(string origen, string destino, out int peso)
+        {  if (grafo.ContainsKey(origen))
             {
-                Console.Write($"{nodo.Key}: ");
-                foreach (var arista in nodo.Value)
+                var arista = grafo[origen].Find(a => a.Destino == destino);
+                if (arista != null)
                 {
-                    Console.Write($"({arista.Destino}, {arista.Peso}) ");
+                    peso = arista.Peso;
+                    return peso;
                 }
-                Console.WriteLine();
             }
-        } // fin Mostrar
+            peso = -1; // Indica que no se encontró la calle
+            return peso;
+        }
+        public void ModificarCalle(string origen, string destino, int nuevoPeso)
+        {
+            if (grafo.ContainsKey(origen))
+            {
+                var arista = grafo[origen].Find(a => a.Destino == destino);
+                if (arista != null) arista.Peso = nuevoPeso;
+            }
+            if (grafo.ContainsKey(destino))
+            {
+                var arista = grafo[destino].Find(a => a.Destino == origen);
+                if (arista != null) arista.Peso = nuevoPeso;
+            }
+        }
 
         public int Dijkstra(string inicio, string destino)
         {
@@ -74,5 +104,32 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
 
             return distancia[destino];
         }// fin Dijkstra
+
+        
+        
+
+        // Método para agregar una conexión (arista) entre origen y destino
+        public void AgregarConexion(string origen, string destino)
+        {
+            if (!adyacencias.ContainsKey(origen))
+                adyacencias[origen] = new List<string>();
+
+            if (!adyacencias.ContainsKey(destino))
+                adyacencias[destino] = new List<string>();
+
+            // Si el grafo es bidireccional (no dirigido), descomenta la línea de abajo
+            // adyacencias[destino].Add(origen); 
+
+            adyacencias[origen].Add(destino);
+        }
+
+        // Método para obtener los nodos conectados a un nodo específico
+        public List<string> ObtenerConexiones(string nodo)
+        {
+            if (adyacencias.ContainsKey(nodo))
+                return adyacencias[nodo];
+
+            return new List<string>();
+        }
     }
 }
