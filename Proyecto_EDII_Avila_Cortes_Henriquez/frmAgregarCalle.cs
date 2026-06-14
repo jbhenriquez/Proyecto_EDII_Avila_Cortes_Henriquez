@@ -30,7 +30,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
                 int tiempo = int.Parse(tbxTiempo.Text);
                 Global.Ciudad.AgregarCalle(origen, destino, tiempo);
                 MessageBox.Show("Calle agregada exitosamente.");
-
+                LimpiarCampos();
             }
             catch (FormatException)
             {

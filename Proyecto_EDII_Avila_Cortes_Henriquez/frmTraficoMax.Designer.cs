@@ -28,42 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dgvTrafMax = new DataGridView();
-            btnCerrar = new Button();
             Origen = new DataGridViewTextBoxColumn();
             Destino = new DataGridViewTextBoxColumn();
             Tiempo = new DataGridViewTextBoxColumn();
+            btnCerrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTrafMax).BeginInit();
             SuspendLayout();
             // 
             // dgvTrafMax
             // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvTrafMax.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvTrafMax.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvTrafMax.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTrafMax.Columns.AddRange(new DataGridViewColumn[] { Origen, Destino, Tiempo });
             dgvTrafMax.Location = new Point(29, 71);
             dgvTrafMax.Name = "dgvTrafMax";
             dgvTrafMax.Size = new Size(520, 174);
             dgvTrafMax.TabIndex = 0;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCerrar.Location = new Point(243, 270);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(100, 40);
-            btnCerrar.TabIndex = 1;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
             // 
             // Origen
             // 
@@ -82,6 +71,17 @@
             Tiempo.HeaderText = "Tiempo";
             Tiempo.Name = "Tiempo";
             Tiempo.Width = 75;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCerrar.Location = new Point(243, 270);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(100, 40);
+            btnCerrar.TabIndex = 1;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // frmTraficoMax
             // 
