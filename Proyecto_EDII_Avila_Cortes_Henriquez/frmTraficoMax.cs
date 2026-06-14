@@ -13,11 +13,33 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         public frmTraficoMax()
         {
             InitializeComponent();
+            dgvTrafMax.Rows.Clear();
+
+            int cantidadAMostrar = 6; // Número de calles con mayor tráfico a mostrar
+
+            // Obtener todas las aristas del grafo, ordenarlas por peso (tráfico) y tomar las top 
+            var aristasPesadas = Global.Ciudad.ObtenerGrafo()
+                .SelectMany(origen => origen.Value.Select(arista => new { Origen = origen.Key, Destino = arista.Destino, Peso = arista.Peso }))
+                .OrderByDescending(a => a.Peso)
+                .Take(cantidadAMostrar);
+
+            
+            foreach (var arista in aristasPesadas)
+            {
+                dgvTrafMax.Rows.Add(
+                    arista.Origen,
+                    arista.Destino,
+                    arista.Peso
+                );
+            }
+            
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        
     }
 }

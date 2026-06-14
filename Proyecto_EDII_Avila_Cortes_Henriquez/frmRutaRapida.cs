@@ -49,7 +49,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             if (cbxOrigen.SelectedItem == null ||
-       cbxDestino.SelectedItem == null)
+                cbxDestino.SelectedItem == null)
             {
                 MessageBox.Show("Seleccione origen y destino");
                 return;
@@ -60,8 +60,16 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
 
             int minutos = Global.Ciudad.Dijkstra(origen, destino);
 
+            if (minutos == int.MaxValue)
+            {
+                lblMinutos.Text = "INF";
+                MessageBox.Show("No hay ruta disponible entre " + origen + " y " + destino);
+                return;
+            }
+
             lblMinutos.Text = minutos.ToString();
 
+            //Se debe identificar los lugares visitados
             lbxRuta.Items.Clear();
             lbxRuta.Items.Add(origen);
             lbxRuta.Items.Add(destino);
