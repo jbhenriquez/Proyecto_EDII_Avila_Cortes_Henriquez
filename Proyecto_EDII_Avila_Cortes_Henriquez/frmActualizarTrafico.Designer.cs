@@ -65,6 +65,7 @@
             cbxDestino.Name = "cbxDestino";
             cbxDestino.Size = new Size(121, 23);
             cbxDestino.TabIndex = 3;
+            cbxDestino.SelectedIndexChanged += cbxDestino_SelectedIndexChanged;
             // 
             // cbxOrigen
             // 
@@ -73,6 +74,7 @@
             cbxOrigen.Name = "cbxOrigen";
             cbxOrigen.Size = new Size(121, 23);
             cbxOrigen.TabIndex = 2;
+            cbxOrigen.SelectedIndexChanged += cbxOrigen_SelectedIndexChanged;
             // 
             // lblDestino
             // 
@@ -160,6 +162,7 @@
             btnGuardar.TabIndex = 3;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnLimpiar
             // 

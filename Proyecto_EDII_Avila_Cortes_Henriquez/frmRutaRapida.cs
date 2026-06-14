@@ -48,6 +48,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            lbxRuta.Items.Clear();
             if (cbxOrigen.SelectedItem == null ||
                 cbxDestino.SelectedItem == null)
             {
@@ -59,7 +60,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             string destino = cbxDestino.SelectedItem.ToString();
 
             int minutos = Global.Ciudad.Dijkstra(origen, destino);
-
+            var lugaresVisitados = Global.Ciudad.ObtenerConexiones(origen);
             if (minutos == int.MaxValue)
             {
                 lblMinutos.Text = "INF";
@@ -71,8 +72,10 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
 
             //Se debe identificar los lugares visitados
             lbxRuta.Items.Clear();
-            lbxRuta.Items.Add(origen);
-            lbxRuta.Items.Add(destino);
+            foreach (var lugar in lugaresVisitados)
+            {
+                lbxRuta.Items.Add(lugar);
+            }
         }
     }
 }
