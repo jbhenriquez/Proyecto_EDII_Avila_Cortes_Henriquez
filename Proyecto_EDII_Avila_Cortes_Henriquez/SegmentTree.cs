@@ -16,6 +16,10 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             Construir(arr, 1, 0, n - 1);
         }
 
+        public SegmentTree()
+        {
+        }
+
         private void Construir(int[] arr, int nodo, int inicio, int fin)
         {
             if (inicio == fin)
@@ -79,5 +83,10 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             int der = Consultar(2 * nodo + 1, mitad + 1, fin, izquierda, derecha);
             return Math.Max(izq, der);
         }// fin Consultar
+
+        public int ObtenerMaximo()
+        {
+            return tree[1]; // El máximo global siempre estará en la raíz del árbol
+        }
     }// fin SegmentTree
 }

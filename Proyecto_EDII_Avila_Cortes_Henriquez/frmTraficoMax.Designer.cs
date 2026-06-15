@@ -34,6 +34,8 @@
             Destino = new DataGridViewTextBoxColumn();
             Tiempo = new DataGridViewTextBoxColumn();
             btnCerrar = new Button();
+            lblTrafMax = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvTrafMax).BeginInit();
             SuspendLayout();
             // 
@@ -83,17 +85,40 @@
             btnCerrar.UseVisualStyleBackColor = true;
             btnCerrar.Click += btnCerrar_Click;
             // 
+            // lblTrafMax
+            // 
+            lblTrafMax.AutoSize = true;
+            lblTrafMax.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTrafMax.Location = new Point(305, 28);
+            lblTrafMax.Name = "lblTrafMax";
+            lblTrafMax.Size = new Size(40, 15);
+            lblTrafMax.TabIndex = 2;
+            lblTrafMax.Text = "label1";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(111, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(181, 15);
+            label1.TabIndex = 3;
+            label1.Text = "TIEMPO MAXIMO DE TRÁFICO: ";
+            // 
             // frmTraficoMax
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(579, 322);
+            Controls.Add(label1);
+            Controls.Add(lblTrafMax);
             Controls.Add(btnCerrar);
             Controls.Add(dgvTrafMax);
             Name = "frmTraficoMax";
             Text = "Tráfico máximo";
             ((System.ComponentModel.ISupportInitialize)dgvTrafMax).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -103,5 +128,7 @@
         private DataGridViewTextBoxColumn Origen;
         private DataGridViewTextBoxColumn Destino;
         private DataGridViewTextBoxColumn Tiempo;
+        private Label lblTrafMax;
+        private Label label1;
     }
 }

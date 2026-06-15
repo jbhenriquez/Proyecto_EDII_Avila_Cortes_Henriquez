@@ -15,11 +15,10 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             InitializeComponent();
             dgvTrafMax.Rows.Clear();
 
-            int cantidadAMostrar = 6; // Número de calles con mayor tráfico a mostrar
+            int cantidadAMostrar = 4; // Número de calles con mayor tráfico a mostrar
 
-            //CAMBIAR PARA USAR CON SEGMENT TREE
 
-            /******* IMPLEMENTACION TEMPORAL PARA PRUEBAS ****/
+            lblTrafMax.Text = Global.Trafico.ObtenerMaximo().ToString() + " Minutos.";
 
             // Obtener todas las aristas del grafo, ordenarlas por peso (tráfico) y tomar las top 
             var aristasPesadas = Global.Ciudad.ObtenerGrafo()

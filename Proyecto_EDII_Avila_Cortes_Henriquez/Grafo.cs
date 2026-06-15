@@ -11,16 +11,36 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
         // Diccionario para guardar cada nodo y su lista de nodos conectados con ciudades conectadas (adyacencias)
         private Dictionary<string, List<string>> adyacencias = new Dictionary<string, List<string>>();
 
+        
+        
+        // asignamos un indice a cada nodo para poder usarlo como indice en el arreglo del Segment Tree
+        private Dictionary<string, int> indiceNodo = new Dictionary<string, int>(); // para mapear cada nodo a un indice único
+        private List<string> indiceANodo = new List<string>(); // para mapear de vuelta el indice a su nodo correspondiente
+        private int[] nodeValues = Array.Empty<int>();  // arreglo para almacenar la métrica de cada nodo (ejemplo: peso máximo incidente)
+        private SegmentTree segmentTree = Global.Trafico; // referencia al Segment Tree global para actualizarlo con las métricas de los nodos
+
+
         //Lista de visitados despues de ejecutar Dijkstra
         public List<string> UltimosVisitados { get; private set; } = new List<string>();
+
         public void AgregarCalle(string origen, string destino, int peso)
         {
             if (!grafo.ContainsKey(origen)) grafo[origen] = new List<Arista>();
             if (!grafo.ContainsKey(destino)) grafo[destino] = new List<Arista>();
+
+            // Añadir la arista al grafo (bidireccional)
             grafo[origen].Add(new Arista(destino, peso));
             grafo[destino].Add(new Arista(origen, peso));
+
+            // Para mantener adyacencias.
             AgregarConexion(origen, destino);
-            AgregarConexion(destino, origen); // Por lo fuertemente conexo
+            AgregarConexion(destino, origen);
+
+            // Asegurar mapeo e actualizar métricas en el Segment Tree
+            AsegurarNodoExiste(origen);
+            AsegurarNodoExiste(destino);
+            ActualizarMetricaNodo(origen);
+            ActualizarMetricaNodo(destino);
         }
         public Dictionary<string, List<Arista>> ObtenerGrafo()
         {
@@ -104,8 +124,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
 
             return distancia[destino];
         }// fin Dijkstra
-
-        
+               
         
 
         // Método para agregar una conexión (arista) entre origen y destino
@@ -130,6 +149,46 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
                 return adyacencias[nodo];
 
             return new List<string>();
+        }
+
+        // Asegura existencia del nodo en el mapeo; si es nuevo, reconstruye el segment tree
+        private void AsegurarNodoExiste(string nodo)
+        {
+            if (indiceNodo.ContainsKey(nodo)) return;
+
+            int newIndex = indiceANodo.Count;
+            indiceNodo[nodo] = newIndex;
+            indiceANodo.Add(nodo);
+
+            // Reconstruir nodeValues con la métrica actual (peso máximo incidente)
+            int n = indiceANodo.Count;
+            var arr = new int[n];
+            for (int i = 0; i < n - 1; i++) // copiar valores anteriores si existían
+                arr[i] = (i < nodeValues.Length) ? nodeValues[i] : 0;
+            arr[n - 1] = CalcularMetricaNodo(nodo);
+            nodeValues = arr;
+            Global.Trafico = new SegmentTree(nodeValues); // Reconstruir el Segment Tree con los nuevos valores
+
+        }
+
+        // Calcula la métrica de ejemplo: peso máximo de las aristas incidentes en 'nodo'
+        private int CalcularMetricaNodo(string nodo)
+        {
+            if (!grafo.ContainsKey(nodo) || grafo[nodo].Count == 0) return 0;
+            int maxPeso = int.MinValue;
+            foreach (var a in grafo[nodo])
+                if (a.Peso > maxPeso) maxPeso = a.Peso;
+            return maxPeso;
+        }
+
+        // Método auxiliar para actualizar el segment tree para un nodo existente
+        private void ActualizarMetricaNodo(string nodo)
+        {
+            if (!indiceNodo.TryGetValue(nodo, out int idx)) return;
+            int valor = CalcularMetricaNodo(nodo);
+            nodeValues[idx] = valor;
+            if (segmentTree != null)
+                segmentTree.Actualizar(idx, valor);
         }
     }
 }
