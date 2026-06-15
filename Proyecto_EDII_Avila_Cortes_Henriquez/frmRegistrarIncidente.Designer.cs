@@ -62,7 +62,7 @@
             // btnGuardar
             // 
             btnGuardar.Font = new Font("Segoe UI", 12F);
-            btnGuardar.Location = new Point(43, 195);
+            btnGuardar.Location = new Point(43, 241);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(100, 30);
             btnGuardar.TabIndex = 2;
@@ -72,7 +72,7 @@
             // btnCerrar
             // 
             btnCerrar.Font = new Font("Segoe UI", 12F);
-            btnCerrar.Location = new Point(397, 195);
+            btnCerrar.Location = new Point(397, 241);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(100, 30);
             btnCerrar.TabIndex = 3;
@@ -143,7 +143,7 @@
             // btnLimpiar
             // 
             btnLimpiar.Font = new Font("Segoe UI", 12F);
-            btnLimpiar.Location = new Point(214, 195);
+            btnLimpiar.Location = new Point(214, 241);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(100, 30);
             btnLimpiar.TabIndex = 5;
@@ -155,7 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(525, 237);
+            ClientSize = new Size(525, 301);
             Controls.Add(btnLimpiar);
             Controls.Add(groupBox1);
             Controls.Add(btnCerrar);

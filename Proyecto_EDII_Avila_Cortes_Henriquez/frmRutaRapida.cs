@@ -71,6 +71,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
             lblMinutos.Text = minutos.ToString();
 
             //Se debe identificar los lugares visitados
+            //SE PODRIA UTILIZAR 2 CBX PARA DEFINIR RUTA
             lbxRuta.Items.Clear();
             foreach (var lugar in lugaresVisitados)
             {

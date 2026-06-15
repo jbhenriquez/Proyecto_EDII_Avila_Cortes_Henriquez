@@ -33,16 +33,26 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
                 return;
             }
 
-            int prioridad = 1;
-            if (rbtMedio.Checked)
+                        
+            if (!rbtBajo.Checked && !rbtMedio.Checked && !rbtAlto.Checked)
+            {
+                MessageBox.Show("Seleccione una prioridad");
+                return;
+            }
+            
+            
+            int prioridad = 0;
+            if (rbtBajo.Checked) 
+                prioridad = 1;
+            if (rbtMedio.Checked) 
                 prioridad = 2;
-            if (rbtAlto.Checked)
+            if (rbtAlto.Checked) 
                 prioridad = 3;
 
             Incidente incidente = new Incidente(
                 tbxDescripcion.Text,
-                DateTime.Now,
-                "No especificada",
+                /*DateTime.Now,
+                "No especificada",*/
                 prioridad
             );
 
