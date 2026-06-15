@@ -10,7 +10,7 @@ namespace Proyecto_EDII_Avila_Cortes_Henriquez
 
         //pendiente de cargar con los datos del trafico
         public static SegmentTree Trafico =
-            new SegmentTree(new int[] { 20, 80, 50, 90, 40 });
+            new SegmentTree();
         
         public static MaxHeap Incidentes =
             new MaxHeap();
